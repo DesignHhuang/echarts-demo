@@ -15,16 +15,16 @@ const routes: RouteRecordRaw[] = [
     },
     name: "Root",
     path: "/",
-    redirect: "/playground",
+    redirect: "/plant/charts",
   },
   {
     component: BasicLayout,
-    name: "Playground",
-    path: "/playground",
+    name: "Plant",
+    path: "/plant",
     children: [
       {
         name: "Charts",
-        path: "/playground/charts",
+        path: "/plant/charts",
         component: () => import("@/pages/charts/index.vue"),
         meta: {
           title: "Charts",
