@@ -156,7 +156,7 @@ const activeTeam = ref({
       <header
         class="flex h-16 border-b items-center justify-between px-4 lg:px-6 gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12"
       >
-        <h1 class="text-xl font-semibold">Plant</h1>
+        <h1 class="text-xl font-semibold">WuXi-Lab-Gen3-Enterprise-Single</h1>
         <div class="relative w-[300px]">
           <Search
             class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground"

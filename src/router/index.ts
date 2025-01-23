@@ -30,6 +30,14 @@ const routes: RouteRecordRaw[] = [
           title: "Charts",
         },
       },
+      {
+        name: "Devices",
+        path: "/plant/devices",
+        component: () => import("@/pages/devices/index.vue"),
+        meta: {
+          title: "Devices",
+        },
+      },
     ],
   },
 ];

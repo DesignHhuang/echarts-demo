@@ -35,7 +35,7 @@ import {
 
 <template>
   <main
-    class="grid items-start flex-1 gap-4 p-4 sm:px-6 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3"
+    class="grid items-start flex-1 gap-4 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3"
   >
     <div class="grid items-start gap-4 auto-rows-max md:gap-8 lg:col-span-2">
       <div
