@@ -1,14 +1,7 @@
 <script setup lang="ts">
 import { Avatar, AvatarFallback, AvatarImage } from "@/app/ui/avatar";
 
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/app/ui/breadcrumb";
+import { Input } from "@/app/ui/input";
 
 import {
   Collapsible,
@@ -24,7 +17,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/app/ui/dropdown-menu";
-import { Separator } from "@/app/ui/separator";
 import {
   Sidebar,
   SidebarContent,
@@ -60,6 +52,7 @@ import {
   Map,
   MoreHorizontal,
   PieChart,
+  Search,
   Settings2,
   SquareTerminal,
   Trash2,
@@ -386,24 +379,18 @@ const activeTeam = ref({
     </Sidebar>
     <SidebarInset>
       <header
-        class="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12"
+        class="flex h-16 border-b items-center justify-between px-4 lg:px-6 gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12"
       >
-        <div class="flex items-center gap-2 px-4">
-          <SidebarTrigger class="-ml-1" />
-          <Separator orientation="vertical" class="h-4 mr-2" />
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem class="hidden md:block">
-                <BreadcrumbLink href="#">
-                  Building Your Application
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator class="hidden md:block" />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Data Fetching</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+        <h1 class="text-xl font-semibold">Search device</h1>
+        <div class="relative w-[300px]">
+          <Search
+            class="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground"
+          />
+          <Input
+            type="search"
+            placeholder="Search serial number..."
+            class="pl-8 shadow-none appearance-none bg-background"
+          />
         </div>
       </header>
       <div class="flex flex-col flex-1 gap-4 p-4 pt-0">
