@@ -171,9 +171,8 @@ const activeTeam = ref({
           />
         </div>
       </header>
-      <div class="flex flex-1 p-4">
-        <RouterView />
-      </div>
+
+      <RouterView />
     </SidebarInset>
   </SidebarProvider>
 </template>
