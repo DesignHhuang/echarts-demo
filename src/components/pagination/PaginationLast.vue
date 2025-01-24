@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import {
   Button,
-} from '@/app/ui/button'
+} from '@/components/button'
 import { cn } from '@/lib/utils'
-import { ChevronLeftIcon } from '@radix-icons/vue'
-import { PaginationPrev, type PaginationPrevProps } from 'radix-vue'
+import { DoubleArrowRightIcon } from '@radix-icons/vue'
+import { PaginationLast, type PaginationLastProps } from 'radix-vue'
 import { computed, type HTMLAttributes } from 'vue'
 
-const props = withDefaults(defineProps<PaginationPrevProps & { class?: HTMLAttributes['class'] }>(), {
+const props = withDefaults(defineProps<PaginationLastProps & { class?: HTMLAttributes['class'] }>(), {
   asChild: true,
 })
 
@@ -19,11 +19,11 @@ const delegatedProps = computed(() => {
 </script>
 
 <template>
-  <PaginationPrev v-bind="delegatedProps">
+  <PaginationLast v-bind="delegatedProps">
     <Button :class="cn('w-9 h-9 p-0', props.class)" variant="outline">
       <slot>
-        <ChevronLeftIcon />
+        <DoubleArrowRightIcon />
       </slot>
     </Button>
-  </PaginationPrev>
+  </PaginationLast>
 </template>

@@ -51,6 +51,9 @@ importers:
         specifier: ^3.24.1
         version: 3.24.1
     devDependencies:
+      '@internationalized/date':
+        specifier: ^3.7.0
+        version: 3.7.0
       '@types/node':
         specifier: ^22.10.7
         version: 22.10.7

@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Button } from "@/app/ui/button";
+import { Button } from "@/components/button";
+
 import {
   Card,
   CardContent,
@@ -7,7 +8,8 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/app/ui/card";
+} from "@/components/card";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,14 +17,27 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/app/ui/dropdown-menu";
+} from "@/components/dropdown-menu";
+
 import {
   Pagination,
   PaginationList,
   PaginationNext,
   PaginationPrev,
-} from "@/app/ui/pagination";
-import { Separator } from "@/app/ui/separator";
+} from "@/components/pagination";
+
+import { Separator } from "@/components/separator";
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/select";
+
+import DateRangePicker from "@/app/components/DateRangePicker.vue";
+
 import {
   Copy,
   CreditCard,
@@ -34,10 +49,70 @@ import {
 </script>
 
 <template>
-  <main
-    class="grid items-start flex-1 gap-4 sm:py-0 md:gap-8 lg:grid-cols-3 xl:grid-cols-3"
-  >
-    <div class="grid items-start gap-4 auto-rows-max md:gap-8 lg:col-span-2">
+  <main class="flex gap-4">
+    <div class="grid items-start gap-4 auto-rows-max lg:col-span-2">
+      <div class="flex items-center justify-between space-y-2">
+        <h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
+        <div class="flex items-center space-x-2">
+          <DateRangePicker />
+          <Button>Add more</Button>
+        </div>
+      </div>
+
+      <div class="flex">
+        <Select>
+          <SelectTrigger
+            id="model"
+            class="items-start [&_[data-description]]:hidden"
+          >
+            <SelectValue placeholder="Select a model" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="genesis">
+              <div class="flex items-start gap-3 text-muted-foreground">
+                <Rabbit class="size-5" />
+                <div class="grid gap-0.5">
+                  <p>
+                    Neural
+                    <span class="font-medium text-foreground"> Genesis </span>
+                  </p>
+                  <p class="text-xs" data-description>
+                    Our fastest model for general use cases.
+                  </p>
+                </div>
+              </div>
+            </SelectItem>
+            <SelectItem value="explorer">
+              <div class="flex items-start gap-3 text-muted-foreground">
+                <Bird class="size-5" />
+                <div class="grid gap-0.5">
+                  <p>
+                    Neural
+                    <span class="font-medium text-foreground"> Explorer </span>
+                  </p>
+                  <p class="text-xs" data-description>
+                    Performance and speed for efficiency.
+                  </p>
+                </div>
+              </div>
+            </SelectItem>
+            <SelectItem value="quantum">
+              <div class="flex items-start gap-3 text-muted-foreground">
+                <Turtle class="size-5" />
+                <div class="grid gap-0.5">
+                  <p>
+                    Neural
+                    <span class="font-medium text-foreground"> Quantum </span>
+                  </p>
+                  <p class="text-xs" data-description>
+                    The most powerful model for complex computations.
+                  </p>
+                </div>
+              </div>
+            </SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
       <div
         class="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4"
       >

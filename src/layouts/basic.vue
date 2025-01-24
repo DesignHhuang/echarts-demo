@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Input } from "@/app/ui/input";
+import { Input } from "@/components/input";
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/app/ui/collapsible";
+} from "@/components/collapsible";
 import {
   Sidebar,
   SidebarContent,
@@ -21,7 +21,7 @@ import {
   SidebarMenuSubItem,
   SidebarProvider,
   SidebarRail,
-} from "@/app/ui/sidebar";
+} from "@/components/sidebar";
 import {
   ChevronRight,
   ChevronsUpDown,
@@ -40,11 +40,11 @@ const navMain = [
     items: [
       {
         title: "Charts",
-        url: "#",
+        url: "/plant/charts",
       },
       {
         title: "Devices",
-        url: "#",
+        url: "/plant/devices",
       },
       {
         title: "Information",
@@ -138,9 +138,12 @@ const activeTeam = ref({
                       :key="subItem.title"
                     >
                       <SidebarMenuSubButton as-child>
-                        <a :href="subItem.url">
+                        <RouterLink :to="subItem.url">
+                          {{ subItem.title }}
+                        </RouterLink>
+                        <!--  <a :href="subItem.url">
                           <span>{{ subItem.title }}</span>
-                        </a>
+                        </a> -->
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   </SidebarMenuSub>
