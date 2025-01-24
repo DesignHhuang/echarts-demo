@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { Badge } from "@/components/badge";
-
-import { Button } from "@/components/button";
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerContent,
@@ -9,18 +7,21 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/drawer";
-import { Input } from "@/components/input";
-import { Label } from "@/components/label";
+} from "@/components/ui/drawer";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/select";
-import { Textarea } from "@/components/textarea";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/tooltip";
+} from "@/components/ui/select";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import {
   Bird,
   Book,

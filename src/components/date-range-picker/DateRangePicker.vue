@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { DateRange } from "radix-vue";
-import { Button } from "../../components/button";
-import { Popover, PopoverContent, PopoverTrigger } from "../../components/popover";
+import { Button } from "../ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
-import { RangeCalendar } from "../../components/range-calendar";
+import { RangeCalendar } from "../ui/range-calendar";
 import { cn } from "@/lib/utils";
 import {
   CalendarDate,

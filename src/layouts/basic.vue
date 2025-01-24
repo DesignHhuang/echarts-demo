@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Input } from "@/components/input";
+import { Input } from "@/components/ui/input";
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/collapsible";
+} from "@/components/ui/collapsible";
 import {
   Sidebar,
   SidebarContent,
@@ -21,7 +21,7 @@ import {
   SidebarMenuSubItem,
   SidebarProvider,
   SidebarRail,
-} from "@/components/sidebar";
+} from "@/components/ui/sidebar";
 import {
   ChevronRight,
   ChevronsUpDown,

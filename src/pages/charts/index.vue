@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from "@/components/button";
+import { Button } from "@/components/ui/button";
 
 import {
   Card,
@@ -8,7 +8,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/card";
+} from "@/components/ui/card";
 
 import {
   DropdownMenu,
@@ -17,16 +17,16 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/dropdown-menu";
+} from "@/components/ui/dropdown-menu";
 
 import {
   Pagination,
   PaginationList,
   PaginationNext,
   PaginationPrev,
-} from "@/components/pagination";
+} from "@/components/ui/pagination";
 
-import { Separator } from "@/components/separator";
+import { Separator } from "@/components/ui/separator";
 
 import {
   Select,
@@ -34,13 +34,17 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/select";
+} from "@/components/ui/select";
 
-import DateRangePicker from "@/app/components/DateRangePicker.vue";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+import { DateRangePicker } from "@/components/date-range-picker";
 
 import {
   Copy,
   CreditCard,
+  BatteryFull,
+  Heater,
   File,
   ListFilter,
   MoreVertical,
@@ -51,68 +55,63 @@ import {
 <template>
   <main class="flex gap-4">
     <div class="grid items-start gap-4 auto-rows-max lg:col-span-2">
-      <div class="flex items-center justify-between space-y-2">
-        <h2 class="text-3xl font-bold tracking-tight">Dashboard</h2>
-        <div class="flex items-center space-x-2">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <Select>
+            <SelectTrigger
+              id="model"
+              class="items-start [&_[data-description]]:hidden"
+            >
+              <SelectValue placeholder="Select a device" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="genesis">
+                <div class="flex items-start gap-3 text-muted-foreground">
+                  <BatteryFull class="size-5" />
+                  <div class="grid gap-0.5">
+                    <p class="font-medium text-foreground">
+                      SM38RRY124430680001
+                    </p>
+                    <p class="text-xs" data-description>iStorage-G3</p>
+                  </div>
+                </div>
+              </SelectItem>
+              <SelectItem value="explorer">
+                <div class="flex items-start gap-3 text-muted-foreground">
+                  <BatteryFull class="size-5" />
+                  <div class="grid gap-0.5">
+                    <p class="font-medium text-foreground">
+                      SM38NRY124270010001
+                    </p>
+                    <p class="text-xs" data-description>iStorage-G3</p>
+                  </div>
+                </div>
+              </SelectItem>
+              <SelectItem value="quantum">
+                <div class="flex items-start gap-3 text-muted-foreground">
+                  <Heater class="size-5" />
+                  <div class="grid gap-0.5">
+                    <p class="font-medium text-foreground">iHeater</p>
+                    <p class="text-xs" data-description>Energy Heater</p>
+                  </div>
+                </div>
+              </SelectItem>
+            </SelectContent>
+          </Select>
+          <Tabs default-value="account" class="w-[400px]">
+            <TabsList class="grid w-full grid-cols-2">
+              <TabsTrigger value="account"> Battery </TabsTrigger>
+              <TabsTrigger value="password"> Cell </TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </div>
+
+        <div class="flex items-center gap-4">
           <DateRangePicker />
-          <Button>Add more</Button>
+          <Button>Add</Button>
         </div>
       </div>
 
-      <div class="flex">
-        <Select>
-          <SelectTrigger
-            id="model"
-            class="items-start [&_[data-description]]:hidden"
-          >
-            <SelectValue placeholder="Select a model" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="genesis">
-              <div class="flex items-start gap-3 text-muted-foreground">
-                <Rabbit class="size-5" />
-                <div class="grid gap-0.5">
-                  <p>
-                    Neural
-                    <span class="font-medium text-foreground"> Genesis </span>
-                  </p>
-                  <p class="text-xs" data-description>
-                    Our fastest model for general use cases.
-                  </p>
-                </div>
-              </div>
-            </SelectItem>
-            <SelectItem value="explorer">
-              <div class="flex items-start gap-3 text-muted-foreground">
-                <Bird class="size-5" />
-                <div class="grid gap-0.5">
-                  <p>
-                    Neural
-                    <span class="font-medium text-foreground"> Explorer </span>
-                  </p>
-                  <p class="text-xs" data-description>
-                    Performance and speed for efficiency.
-                  </p>
-                </div>
-              </div>
-            </SelectItem>
-            <SelectItem value="quantum">
-              <div class="flex items-start gap-3 text-muted-foreground">
-                <Turtle class="size-5" />
-                <div class="grid gap-0.5">
-                  <p>
-                    Neural
-                    <span class="font-medium text-foreground"> Quantum </span>
-                  </p>
-                  <p class="text-xs" data-description>
-                    The most powerful model for complex computations.
-                  </p>
-                </div>
-              </div>
-            </SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
       <div
         class="grid gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4"
       >
@@ -230,189 +229,13 @@ import {
                 Recent orders from your store.
               </CardDescription>
             </CardHeader>
-            <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Customer</TableHead>
-                    <TableHead class="hidden sm:table-cell"> Type </TableHead>
-                    <TableHead class="hidden sm:table-cell"> Status </TableHead>
-                    <TableHead class="hidden md:table-cell"> Date </TableHead>
-                    <TableHead class="text-right"> Amount </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  <TableRow class="bg-accent">
-                    <TableCell>
-                      <div class="font-medium">Liam Johnson</div>
-                      <div
-                        class="hidden text-sm text-muted-foreground md:inline"
-                      >
-                        liam@example.com
-                      </div>
-                    </TableCell>
-                    <TableCell class="hidden sm:table-cell"> Sale </TableCell>
-                    <TableCell class="hidden sm:table-cell">
-                      <Badge class="text-xs" variant="secondary">
-                        Fulfilled
-                      </Badge>
-                    </TableCell>
-                    <TableCell class="hidden md:table-cell">
-                      2023-06-23
-                    </TableCell>
-                    <TableCell class="text-right"> $250.00 </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <div class="font-medium">Olivia Smith</div>
-                      <div
-                        class="hidden text-sm text-muted-foreground md:inline"
-                      >
-                        olivia@example.com
-                      </div>
-                    </TableCell>
-                    <TableCell class="hidden sm:table-cell"> Refund </TableCell>
-                    <TableCell class="hidden sm:table-cell">
-                      <Badge class="text-xs" variant="outline">
-                        Declined
-                      </Badge>
-                    </TableCell>
-                    <TableCell class="hidden md:table-cell">
-                      2023-06-24
-                    </TableCell>
-                    <TableCell class="text-right"> $150.00 </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <div class="font-medium">Noah Williams</div>
-                      <div
-                        class="hidden text-sm text-muted-foreground md:inline"
-                      >
-                        noah@example.com
-                      </div>
-                    </TableCell>
-                    <TableCell class="hidden sm:table-cell">
-                      Subscription
-                    </TableCell>
-                    <TableCell class="hidden sm:table-cell">
-                      <Badge class="text-xs" variant="secondary">
-                        Fulfilled
-                      </Badge>
-                    </TableCell>
-                    <TableCell class="hidden md:table-cell">
-                      2023-06-25
-                    </TableCell>
-                    <TableCell class="text-right"> $350.00 </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <div class="font-medium">Emma Brown</div>
-                      <div
-                        class="hidden text-sm text-muted-foreground md:inline"
-                      >
-                        emma@example.com
-                      </div>
-                    </TableCell>
-                    <TableCell class="hidden sm:table-cell"> Sale </TableCell>
-                    <TableCell class="hidden sm:table-cell">
-                      <Badge class="text-xs" variant="secondary">
-                        Fulfilled
-                      </Badge>
-                    </TableCell>
-                    <TableCell class="hidden md:table-cell">
-                      2023-06-26
-                    </TableCell>
-                    <TableCell class="text-right"> $450.00 </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <div class="font-medium">Liam Johnson</div>
-                      <div
-                        class="hidden text-sm text-muted-foreground md:inline"
-                      >
-                        liam@example.com
-                      </div>
-                    </TableCell>
-                    <TableCell class="hidden sm:table-cell"> Sale </TableCell>
-                    <TableCell class="hidden sm:table-cell">
-                      <Badge class="text-xs" variant="secondary">
-                        Fulfilled
-                      </Badge>
-                    </TableCell>
-                    <TableCell class="hidden md:table-cell">
-                      2023-06-23
-                    </TableCell>
-                    <TableCell class="text-right"> $250.00 </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <div class="font-medium">Liam Johnson</div>
-                      <div
-                        class="hidden text-sm text-muted-foreground md:inline"
-                      >
-                        liam@example.com
-                      </div>
-                    </TableCell>
-                    <TableCell class="hidden sm:table-cell"> Sale </TableCell>
-                    <TableCell class="hidden sm:table-cell">
-                      <Badge class="text-xs" variant="secondary">
-                        Fulfilled
-                      </Badge>
-                    </TableCell>
-                    <TableCell class="hidden md:table-cell">
-                      2023-06-23
-                    </TableCell>
-                    <TableCell class="text-right"> $250.00 </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <div class="font-medium">Olivia Smith</div>
-                      <div
-                        class="hidden text-sm text-muted-foreground md:inline"
-                      >
-                        olivia@example.com
-                      </div>
-                    </TableCell>
-                    <TableCell class="hidden sm:table-cell"> Refund </TableCell>
-                    <TableCell class="hidden sm:table-cell">
-                      <Badge class="text-xs" variant="outline">
-                        Declined
-                      </Badge>
-                    </TableCell>
-                    <TableCell class="hidden md:table-cell">
-                      2023-06-24
-                    </TableCell>
-                    <TableCell class="text-right"> $150.00 </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>
-                      <div class="font-medium">Emma Brown</div>
-                      <div
-                        class="hidden text-sm text-muted-foreground md:inline"
-                      >
-                        emma@example.com
-                      </div>
-                    </TableCell>
-                    <TableCell class="hidden sm:table-cell"> Sale </TableCell>
-                    <TableCell class="hidden sm:table-cell">
-                      <Badge class="text-xs" variant="secondary">
-                        Fulfilled
-                      </Badge>
-                    </TableCell>
-                    <TableCell class="hidden md:table-cell">
-                      2023-06-26
-                    </TableCell>
-                    <TableCell class="text-right"> $450.00 </TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </CardContent>
+            <CardContent> 这边是图表位置 </CardContent>
           </Card>
         </TabsContent>
       </Tabs>
     </div>
     <div>
-      <Card class="overflow-hidden">
+      <Card class="overflow-hidden h-full flex flex-col">
         <CardHeader class="flex flex-row items-start bg-muted/50">
           <div class="grid gap-0.5">
             <CardTitle class="flex items-center gap-2 text-lg group">
@@ -451,7 +274,7 @@ import {
             </DropdownMenu>
           </div>
         </CardHeader>
-        <CardContent class="p-6 text-sm">
+        <CardContent class="p-6 text-sm flex-1">
           <div class="grid gap-3">
             <div class="font-semibold">Order Details</div>
             <ul class="grid gap-3">
