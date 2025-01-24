@@ -380,18 +380,19 @@ const data = [
           <CardTitle>CCL/DCL/Current(A)</CardTitle>
         </CardHeader>
         <CardContent class="pl-2">
-          <LineChart
+          <!-- <LineChart
             :data="data"
             index="year"
             :categories="['Export Growth Rate', 'Import Growth Rate']"
             :y-formatter="
-              (tick, i) => {
+              (tick) => {
                 return typeof tick === 'number'
                   ? `$ ${new Intl.NumberFormat('us').format(tick).toString()}`
                   : '';
               }
             "
-          />
+            :custom-tooltip="CustomChartTooltip"
+          /> -->
         </CardContent>
       </Card>
     </div>
