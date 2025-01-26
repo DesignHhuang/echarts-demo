@@ -6,7 +6,7 @@ import {
   type RouteRecordRaw,
 } from "vue-router";
 
-import { BasicLayout } from "@/layouts/index";
+import { BasicLayoutWithoutSider } from "@/layouts/index";
 
 const routes: RouteRecordRaw[] = [
   {
@@ -18,7 +18,7 @@ const routes: RouteRecordRaw[] = [
     redirect: "/plant/charts",
   },
   {
-    component: BasicLayout,
+    component: BasicLayoutWithoutSider,
     name: "Plant",
     path: "/plant",
     children: [

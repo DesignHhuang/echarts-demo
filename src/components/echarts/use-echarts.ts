@@ -74,6 +74,7 @@ function useEcharts(chartRef: Ref<EchartsUIType>) {
   }
 
   watch([width, height], () => {
+    console.log(width.value);
     resizeHandler?.();
   });
 

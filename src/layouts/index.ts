@@ -1,3 +1,5 @@
 const BasicLayout = () => import("./basic.vue");
 
-export { BasicLayout };
+const BasicLayoutWithoutSider = () => import("./header.vue");
+
+export { BasicLayout, BasicLayoutWithoutSider };
