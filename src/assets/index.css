@@ -96,3 +96,13 @@
         --sidebar-ring: 217.2 91.2% 59.8%;
     }
 }
+
+/* Font face Geist font */
+
+@font-face {
+    font-family: "geist-sans";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("/fonts/Geist/GeistVariableVF.woff2") format("woff2");
+}

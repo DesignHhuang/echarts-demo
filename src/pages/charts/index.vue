@@ -11,12 +11,10 @@ import {
 } from "@/components/ui/card";
 
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 import {
   Pagination,
@@ -41,14 +39,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { DateRangePicker } from "@/components/date-range-picker";
 
-import {
-  Copy,
-  CreditCard,
-  BatteryFull,
-  Heater,
-  MoreVertical,
-  Truck,
-} from "lucide-vue-next";
+import { Copy, BatteryFull, Heater, Info } from "lucide-vue-next";
 
 import CustomChartTooltip from "./CustomChartTooltip.vue";
 
@@ -400,125 +391,148 @@ const data = [
       <CardHeader class="flex flex-row items-start bg-muted/50">
         <div class="grid gap-0.5">
           <CardTitle class="flex items-center gap-2 text-lg group">
-            Order ID: Oe31b70H
-            <Button
-              size="icon"
-              variant="outline"
-              class="w-6 h-6 transition-opacity opacity-0 group-hover:opacity-100"
-            >
-              <Copy class="w-3 h-3" />
-              <span class="sr-only">Copy Order ID</span>
-            </Button>
+            BMS SN: SM38N24170410004
+            <Tooltip>
+              <TooltipTrigger as-child>
+                <Button variant="ghost" size="icon">
+                  <Copy class="size-3" />
+                  <span class="sr-only">Copy SN</span>
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Copy SN</TooltipContent>
+            </Tooltip>
           </CardTitle>
-          <CardDescription>Date: November 23, 2023</CardDescription>
-        </div>
-        <div class="flex items-center gap-1 ml-auto">
-          <Button size="sm" variant="outline" class="h-8 gap-1">
-            <Truck class="h-3.5 w-3.5" />
-            <span class="lg:sr-only xl:not-sr-only xl:whitespace-nowrap">
-              Track Order
-            </span>
-          </Button>
-          <DropdownMenu>
-            <DropdownMenuTrigger as-child>
-              <Button size="icon" variant="outline" class="w-8 h-8">
-                <MoreVertical class="h-3.5 w-3.5" />
-                <span class="sr-only">More</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>Edit</DropdownMenuItem>
-              <DropdownMenuItem>Export</DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>Trash</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <CardDescription>Date: November 23, 2024</CardDescription>
         </div>
       </CardHeader>
       <CardContent class="p-6 text-sm flex-1">
         <div class="grid gap-3">
-          <div class="font-semibold">Order Details</div>
+          <div class="font-semibold">BMS Details</div>
           <ul class="grid gap-3">
-            <li class="flex items-center justify-between">
-              <span class="text-muted-foreground">
-                Glimmer Lamps x <span>2</span>
-              </span>
-              <span>$250.00</span>
+            <li class="flex items-center justify-between font-semibold">
+              <div class="flex items-center gap-2">
+                <span class="text-muted-foreground"> SOC </span>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Info
+                      class="size-4 text-muted-foreground hover:text-foreground"
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent side="right">State of charge</TooltipContent>
+                </Tooltip>
+              </div>
+              <span>80%</span>
             </li>
-            <li class="flex items-center justify-between">
-              <span class="text-muted-foreground">
-                Aqua Filters x <span>1</span>
-              </span>
-              <span>$49.00</span>
+            <li class="flex items-center justify-between font-semibold">
+              <div class="flex items-center gap-2">
+                <span class="text-muted-foreground"> SOH </span>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Info
+                      class="size-4 text-muted-foreground hover:text-foreground"
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent side="right">State of health</TooltipContent>
+                </Tooltip>
+              </div>
+              <span>100%</span>
+            </li>
+            <li class="flex items-center justify-between font-semibold">
+              <div class="flex items-center gap-2">
+                <span class="text-muted-foreground"> CCL </span>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Info
+                      class="size-4 text-muted-foreground hover:text-foreground"
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent side="right">
+                    Charge current limit
+                  </TooltipContent>
+                </Tooltip>
+              </div>
+              <span>48A</span>
+            </li>
+            <li class="flex items-center justify-between font-semibold">
+              <div class="flex items-center gap-2">
+                <span class="text-muted-foreground"> DCL </span>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Info
+                      class="size-4 text-muted-foreground hover:text-foreground"
+                    />
+                  </TooltipTrigger>
+                  <TooltipContent side="right">
+                    Discharge current limit
+                  </TooltipContent>
+                </Tooltip>
+              </div>
+              <span>50A</span>
             </li>
           </ul>
           <Separator class="my-2" />
           <ul class="grid gap-3">
             <li class="flex items-center justify-between">
-              <span class="text-muted-foreground">Subtotal</span>
-              <span>$299.00</span>
+              <span class="text-muted-foreground">Current</span>
+              <span>6.7A</span>
             </li>
             <li class="flex items-center justify-between">
-              <span class="text-muted-foreground">Shipping</span>
-              <span>$5.00</span>
-            </li>
-            <li class="flex items-center justify-between">
-              <span class="text-muted-foreground">Tax</span>
-              <span>$25.00</span>
+              <span class="text-muted-foreground">Voltage</span>
+              <span>311.3A</span>
             </li>
             <li class="flex items-center justify-between font-semibold">
-              <span class="text-muted-foreground">Total</span>
-              <span>$329.00</span>
+              <span class="text-muted-foreground">Power</span>
+              <span>2085W</span>
             </li>
           </ul>
         </div>
         <Separator class="my-4" />
-        <div class="grid grid-cols-2 gap-4">
-          <div class="grid gap-3">
-            <div class="font-semibold">Shipping Information</div>
-            <address class="grid gap-0.5 not-italic text-muted-foreground">
-              <span>Liam Johnson</span>
-              <span>1234 Main St.</span>
-              <span>Anytown, CA 12345</span>
-            </address>
-          </div>
-          <div class="grid gap-3 auto-rows-max">
-            <div class="font-semibold">Billing Information</div>
-            <div class="text-muted-foreground">Same as shipping address</div>
-          </div>
-        </div>
-        <Separator class="my-4" />
         <div class="grid gap-3">
-          <div class="font-semibold">Customer Information</div>
+          <div class="font-semibold">Cell Voltage</div>
           <dl class="grid gap-3">
             <div class="flex items-center justify-between">
-              <dt class="text-muted-foreground">Customer</dt>
-              <dd>Liam Johnson</dd>
+              <dt class="text-muted-foreground">Max from C0-M3-C2</dt>
+              <dd>3.302V</dd>
             </div>
             <div class="flex items-center justify-between">
-              <dt class="text-muted-foreground">Email</dt>
-              <dd>
-                <a href="mailto:">liam@acme.com</a>
-              </dd>
+              <dt class="text-muted-foreground">Min from C0-M1-C1</dt>
+              <dd>3.271V</dd>
             </div>
             <div class="flex items-center justify-between">
-              <dt class="text-muted-foreground">Phone</dt>
-              <dd>
-                <a href="tel:">+1 234 567 890</a>
-              </dd>
+              <dt class="text-muted-foreground">Voltage Difference</dt>
+              <dd>31mV</dd>
             </div>
           </dl>
         </div>
         <Separator class="my-4" />
         <div class="grid gap-3">
-          <div class="font-semibold">Payment Information</div>
+          <div class="font-semibold">Temperature</div>
+          <dl class="grid gap-3">
+            <div class="flex items-center justify-between">
+              <dt class="text-muted-foreground">Max from C0-M1-C2</dt>
+              <dd>22°C</dd>
+            </div>
+            <div class="flex items-center justify-between">
+              <dt class="text-muted-foreground">Min from C0-M4-C1</dt>
+              <dd>19°C</dd>
+            </div>
+          </dl>
+        </div>
+        <Separator class="my-4" />
+        <div class="grid gap-3">
+          <div class="font-semibold">Statistics</div>
           <dl class="grid gap-3">
             <div class="flex items-center justify-between">
               <dt class="flex items-center gap-1 text-muted-foreground">
-                <CreditCard class="w-4 h-4" />
-                Visa
+                Total Charged
               </dt>
-              <dd>**** **** **** 4532</dd>
+              <dd>434.6kWh</dd>
+            </div>
+            <div class="flex items-center justify-between">
+              <dt class="flex items-center gap-1 text-muted-foreground">
+                Total Discharged
+              </dt>
+              <dd>392.4kWh</dd>
             </div>
           </dl>
         </div>
@@ -527,7 +541,7 @@ const data = [
         class="flex flex-row items-center px-6 py-3 border-t bg-muted/50"
       >
         <div class="text-xs text-muted-foreground">
-          Updated <time dateTime="2023-11-23">November 23, 2023</time>
+          Updated <time dateTime="2023-11-23">November 23, 2024</time>
         </div>
         <Pagination class="w-auto ml-auto mr-0">
           <PaginationList class="gap-1">
