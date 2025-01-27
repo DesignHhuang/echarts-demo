@@ -74,7 +74,6 @@ function useEcharts(chartRef: Ref<EchartsUIType>) {
   }
 
   watch([width, height], () => {
-    console.log(width.value);
     resizeHandler?.();
   });
 
@@ -84,6 +83,7 @@ function useEcharts(chartRef: Ref<EchartsUIType>) {
     // 销毁实例，释放资源
     chartInstance?.dispose();
   });
+
   return {
     renderEcharts,
     resize,

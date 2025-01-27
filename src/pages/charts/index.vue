@@ -103,70 +103,72 @@ import AnalyticsStates from "./AnalyticsStates.vue";
         <DateRangePicker />
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>SOC & SOH</CardTitle>
-        </CardHeader>
-        <CardContent class="pl-2">
-          <AnalyticsStates />
-        </CardContent>
-      </Card>
+      <div class="grid grid-cols-1 gap-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>SOC & SOH</CardTitle>
+          </CardHeader>
+          <CardContent class="overflow-hidden">
+            <AnalyticsStates />
+          </CardContent>
+        </Card>
 
-      <!-- <Card>
-        <CardHeader>
-          <CardTitle>CCL & DCL & Current</CardTitle>
-        </CardHeader>
-        <CardContent class="pl-2">
-          <AnalyticsTrends />
-        </CardContent>
-      </Card> -->
+        <Card>
+          <CardHeader>
+            <CardTitle>CCL & DCL & Current</CardTitle>
+          </CardHeader>
+          <CardContent class="overflow-hidden">
+            <AnalyticsTrends />
+          </CardContent>
+        </Card>
 
-      <!-- <Card>
-        <CardHeader>
-          <CardTitle>Battery Cell Voltage</CardTitle>
-        </CardHeader>
-        <CardContent class="pl-2">
-          <AnalyticsTrends />
-        </CardContent>
-      </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Battery Cell Voltage</CardTitle>
+          </CardHeader>
+          <CardContent class="pl-2">
+            <AnalyticsTrends />
+          </CardContent>
+        </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Power</CardTitle>
-        </CardHeader>
-        <CardContent class="pl-2">
-          <AnalyticsTrends />
-        </CardContent>
-      </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Power</CardTitle>
+          </CardHeader>
+          <CardContent class="pl-2">
+            <AnalyticsTrends />
+          </CardContent>
+        </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Current & Voltage</CardTitle>
-        </CardHeader>
-        <CardContent class="pl-2">
-          <AnalyticsTrends />
-        </CardContent>
-      </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Current & Voltage</CardTitle>
+          </CardHeader>
+          <CardContent class="pl-2">
+            <AnalyticsTrends />
+          </CardContent>
+        </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Temperature</CardTitle>
-        </CardHeader>
-        <CardContent class="pl-2">
-          <AnalyticsTrends />
-        </CardContent>
-      </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Temperature</CardTitle>
+          </CardHeader>
+          <CardContent class="pl-2">
+            <AnalyticsTrends />
+          </CardContent>
+        </Card>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Statistics</CardTitle>
-        </CardHeader>
-        <CardContent class="pl-2">
-          <AnalyticsTrends />
-        </CardContent>
-      </Card> -->
+        <Card>
+          <CardHeader>
+            <CardTitle>Statistics</CardTitle>
+          </CardHeader>
+          <CardContent class="pl-2">
+            <AnalyticsTrends />
+          </CardContent>
+        </Card>
+      </div>
     </div>
-    <Card class="overflow-hidden h-full flex flex-col">
+    <Card class="overflow-hidden h-full flex flex-col flex-none">
       <CardHeader class="flex flex-row items-start bg-muted/50">
         <div class="grid gap-0.5">
           <CardTitle class="flex items-center gap-2 text-lg">
