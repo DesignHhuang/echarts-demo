@@ -47,8 +47,8 @@ import AnalyticsStates from "./AnalyticsStates.vue";
 <template>
   <div class="flex flex-1 p-4 gap-4">
     <div class="flex flex-col flex-1 gap-4">
-      <div class="flex items-center justify-between">
-        <div class="w-[300px]">
+      <div class="flex items-center justify-between gap-4">
+        <div class="flex gap-4 w-[500px]">
           <Select>
             <SelectTrigger class="items-start [&_[data-description]]:hidden">
               <SelectValue placeholder="Select a device" />
@@ -87,26 +87,24 @@ import AnalyticsStates from "./AnalyticsStates.vue";
               </SelectItem>
             </SelectContent>
           </Select>
+          <Tabs default-value="account" class="flex-none w-[200px]">
+            <TabsList class="grid w-full grid-cols-2">
+              <TabsTrigger value="account"> Battery </TabsTrigger>
+              <TabsTrigger value="password"> Cell </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </div>
 
         <Button>Add More Charts</Button>
       </div>
 
-      <div class="flex items-center justify-between gap-4">
-        <Tabs default-value="account" class="w-[200px]">
-          <TabsList class="grid w-full grid-cols-2">
-            <TabsTrigger value="account"> Battery </TabsTrigger>
-            <TabsTrigger value="password"> Cell </TabsTrigger>
-          </TabsList>
-        </Tabs>
-
-        <DateRangePicker />
-      </div>
-
       <div class="grid grid-cols-1 gap-4">
         <Card>
           <CardHeader>
-            <CardTitle>SOC & SOH</CardTitle>
+            <div class="flex items-center justify-between gap-4">
+              <CardTitle>SOC & SOH</CardTitle>
+              <DateRangePicker />
+            </div>
           </CardHeader>
           <CardContent class="overflow-hidden">
             <AnalyticsStates />
@@ -115,7 +113,10 @@ import AnalyticsStates from "./AnalyticsStates.vue";
 
         <Card>
           <CardHeader>
-            <CardTitle>CCL & DCL & Current</CardTitle>
+            <div class="flex items-center justify-between gap-4">
+              <CardTitle>CCL & DCL & Current</CardTitle>
+              <DateRangePicker />
+            </div>
           </CardHeader>
           <CardContent class="overflow-hidden">
             <AnalyticsTrends />
@@ -124,7 +125,10 @@ import AnalyticsStates from "./AnalyticsStates.vue";
 
         <Card>
           <CardHeader>
-            <CardTitle>Battery Cell Voltage</CardTitle>
+            <div class="flex items-center justify-between gap-4">
+              <CardTitle>Battery Cell Voltage</CardTitle>
+              <DateRangePicker />
+            </div>
           </CardHeader>
           <CardContent class="pl-2">
             <AnalyticsTrends />
@@ -133,7 +137,10 @@ import AnalyticsStates from "./AnalyticsStates.vue";
 
         <Card>
           <CardHeader>
-            <CardTitle>Power</CardTitle>
+            <div class="flex items-center justify-between gap-4">
+              <CardTitle>Power</CardTitle>
+              <DateRangePicker />
+            </div>
           </CardHeader>
           <CardContent class="pl-2">
             <AnalyticsTrends />
@@ -142,7 +149,10 @@ import AnalyticsStates from "./AnalyticsStates.vue";
 
         <Card>
           <CardHeader>
-            <CardTitle>Current & Voltage</CardTitle>
+            <div class="flex items-center justify-between gap-4">
+              <CardTitle>Current & Voltage</CardTitle>
+              <DateRangePicker />
+            </div>
           </CardHeader>
           <CardContent class="pl-2">
             <AnalyticsTrends />
@@ -151,7 +161,10 @@ import AnalyticsStates from "./AnalyticsStates.vue";
 
         <Card>
           <CardHeader>
-            <CardTitle>Temperature</CardTitle>
+            <div class="flex items-center justify-between gap-4">
+              <CardTitle>Temperature</CardTitle>
+              <DateRangePicker />
+            </div>
           </CardHeader>
           <CardContent class="pl-2">
             <AnalyticsTrends />
@@ -160,7 +173,10 @@ import AnalyticsStates from "./AnalyticsStates.vue";
 
         <Card>
           <CardHeader>
-            <CardTitle>Statistics</CardTitle>
+            <div class="flex items-center justify-between gap-4">
+              <CardTitle>Statistics</CardTitle>
+              <DateRangePicker />
+            </div>
           </CardHeader>
           <CardContent class="pl-2">
             <AnalyticsTrends />
@@ -168,7 +184,7 @@ import AnalyticsStates from "./AnalyticsStates.vue";
         </Card>
       </div>
     </div>
-    <Card class="overflow-hidden h-full flex flex-col flex-none">
+    <Card class="overflow-hidden h-full flex flex-col flex-none sticky top-20">
       <CardHeader class="flex flex-row items-start bg-muted/50">
         <div class="grid gap-0.5">
           <CardTitle class="flex items-center gap-2 text-lg">

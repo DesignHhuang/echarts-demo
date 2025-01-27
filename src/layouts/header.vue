@@ -6,7 +6,7 @@ import { Search } from "lucide-vue-next";
 <template>
   <div class="flex min-h-screen min-w-[1000px] w-full flex-col">
     <header
-      class="sticky top-0 flex h-16 items-center justify-between gap-4 border-b bg-background px-6"
+      class="sticky top-0 flex h-16 items-center justify-between gap-4 border-b bg-background px-6 z-50"
     >
       <h1 class="text-xl font-semibold">WuXi-Lab-Gen3-Enterprise-Single</h1>
       <div class="relative w-[300px]">
