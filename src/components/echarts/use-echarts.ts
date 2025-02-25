@@ -58,6 +58,10 @@ function useEcharts(chartRef: Ref<EchartsUIType>) {
           }
           clear && chartInstance?.clear();
           chartInstance?.setOption(currentOptions);
+          if (chartInstance) {
+            chartInstance.group = "group1";
+            echarts.connect("group1");
+          }
           resolve(chartInstance);
         }, 30);
       });

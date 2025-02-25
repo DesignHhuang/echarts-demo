@@ -6,7 +6,7 @@ import { onMounted, ref } from "vue";
 import { EchartsUI, useEcharts } from "@/components/echarts";
 
 const chartRef = ref<EchartsUIType>();
-const { renderEcharts } = useEcharts(chartRef);
+const { renderEcharts, getChartInstance } = useEcharts(chartRef);
 
 onMounted(() => {
   renderEcharts({

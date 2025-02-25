@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { onMounted, ref, unref } from "vue";
 import { Button } from "@/components/ui/button";
 
 import {
@@ -41,7 +42,15 @@ import { DateRangePicker } from "@/components/date-range-picker";
 import { Copy, BatteryFull, Heater, Info } from "lucide-vue-next";
 
 import AnalyticsTrends from "./AnalyticsTrends.vue";
-import AnalyticsStates from "./AnalyticsStates.vue";
+//import AnalyticsStates from "./AnalyticsStates.vue";
+
+import LineSocSoh from "./LineSocSoh.vue";
+import LineCclDclCurrent from "./LineCclDclCurrent.vue";
+import LineBatteryCellVoltage from "./LineBatteryCellVoltage.vue";
+import LinePower from "./LinePower.vue";
+import LineCurrentVoltage from "./LineCurrentVoltage.vue";
+import LineTempture from "./LineTempture.vue";
+import LineStatistics from "./LineStatistics.vue";
 </script>
 
 <template>
@@ -107,7 +116,7 @@ import AnalyticsStates from "./AnalyticsStates.vue";
             </div>
           </CardHeader>
           <CardContent class="overflow-hidden">
-            <AnalyticsStates />
+            <LineSocSoh ref="socSoh" />
           </CardContent>
         </Card>
 
@@ -119,7 +128,7 @@ import AnalyticsStates from "./AnalyticsStates.vue";
             </div>
           </CardHeader>
           <CardContent class="overflow-hidden">
-            <AnalyticsTrends />
+            <LineCclDclCurrent ref="cclDclCurrent" />
           </CardContent>
         </Card>
 
@@ -131,7 +140,7 @@ import AnalyticsStates from "./AnalyticsStates.vue";
             </div>
           </CardHeader>
           <CardContent class="pl-2">
-            <AnalyticsTrends />
+            <LineBatteryCellVoltage />
           </CardContent>
         </Card>
 
@@ -143,7 +152,7 @@ import AnalyticsStates from "./AnalyticsStates.vue";
             </div>
           </CardHeader>
           <CardContent class="pl-2">
-            <AnalyticsTrends />
+            <LinePower />
           </CardContent>
         </Card>
 
@@ -155,7 +164,7 @@ import AnalyticsStates from "./AnalyticsStates.vue";
             </div>
           </CardHeader>
           <CardContent class="pl-2">
-            <AnalyticsTrends />
+            <LineCurrentVoltage />
           </CardContent>
         </Card>
 
@@ -167,7 +176,7 @@ import AnalyticsStates from "./AnalyticsStates.vue";
             </div>
           </CardHeader>
           <CardContent class="pl-2">
-            <AnalyticsTrends />
+            <LineTempture />
           </CardContent>
         </Card>
 
@@ -179,7 +188,7 @@ import AnalyticsStates from "./AnalyticsStates.vue";
             </div>
           </CardHeader>
           <CardContent class="pl-2">
-            <AnalyticsTrends />
+            <LineStatistics />
           </CardContent>
         </Card>
       </div>
