@@ -46,7 +46,7 @@ onMounted(() => {
         showSymbol: false,
         name: "Max(°C)",
         itemStyle: {
-          color: "#5ab1ef",
+          color: "#025DF4",
         },
         areaStyle: { opacity: 0.2 },
       },
@@ -57,7 +57,7 @@ onMounted(() => {
         showSymbol: false,
         name: "Min(°C)",
         itemStyle: {
-          color: "#019680",
+          color: "#DB6BCF",
         },
         areaStyle: { opacity: 0.2 },
       },

@@ -46,7 +46,7 @@ onMounted(() => {
         showSymbol: false,
         name: "Total Charged(kWh)",
         itemStyle: {
-          color: "#5ab1ef",
+          color: "#39a9db",
         },
         areaStyle: { opacity: 0.2 },
       },
@@ -57,7 +57,7 @@ onMounted(() => {
         showSymbol: false,
         name: "Total Discharged(kWh)",
         itemStyle: {
-          color: "#019680",
+          color: "#40bcd8",
         },
         areaStyle: { opacity: 0.2 },
       },
