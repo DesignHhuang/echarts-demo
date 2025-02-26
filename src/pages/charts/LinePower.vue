@@ -30,7 +30,7 @@ onMounted(() => {
     yAxis: {
       type: "value",
       scale: true,
-      splitLine: { show: false },
+      //splitLine: { show: false },
       axisLabel: {
         formatter: "{value}W",
       },
@@ -43,27 +43,10 @@ onMounted(() => {
         showSymbol: false,
         name: "Power(W)",
         itemStyle: {
-          color: "#14b8a6",
+          color: "#e21d48",
         },
         areaStyle: {
           opacity: 0.2,
-          color: {
-            type: "linear",
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              {
-                offset: 0,
-                color: "#14b8a6",
-              },
-              {
-                offset: 1,
-                color: "#ccfbf1",
-              },
-            ],
-          },
         },
       },
     ],

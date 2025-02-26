@@ -32,8 +32,8 @@ onMounted(() => {
     },
     yAxis: {
       type: "value",
-      scale: true,
-      splitLine: { show: false },
+      //scale: true,
+      //splitLine: { show: false },
       axisLabel: {
         formatter: "{value}kWh",
       },
@@ -46,9 +46,8 @@ onMounted(() => {
         showSymbol: false,
         name: "Total Charged(kWh)",
         itemStyle: {
-          color: "#39a9db",
+          color: "#0081a7",
         },
-        areaStyle: { opacity: 0.2 },
       },
       {
         smooth: true,
@@ -57,9 +56,8 @@ onMounted(() => {
         showSymbol: false,
         name: "Total Discharged(kWh)",
         itemStyle: {
-          color: "#40bcd8",
+          color: "#77bfa3",
         },
-        areaStyle: { opacity: 0.2 },
       },
     ],
   });

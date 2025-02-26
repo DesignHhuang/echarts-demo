@@ -44,30 +44,11 @@ onMounted(() => {
         type: "line",
         showSymbol: false,
         name: "CCL(A)",
-        lineStyle: {
-          width: 1,
-        },
         itemStyle: {
-          color: "#a8a29e",
+          color: "#2563eb",
         },
         areaStyle: {
-          color: {
-            type: "linear",
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              {
-                offset: 0,
-                color: "#a8a29e",
-              },
-              {
-                offset: 1,
-                color: "#fafaf9",
-              },
-            ],
-          },
+          opacity: 0.1,
         },
       },
       {
@@ -76,30 +57,11 @@ onMounted(() => {
         type: "line",
         showSymbol: false,
         name: "DCL(A)",
-        lineStyle: {
-          width: 1,
-        },
         itemStyle: {
-          color: "#9ca3af",
+          color: "#60a8fb",
         },
         areaStyle: {
-          color: {
-            type: "linear",
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              {
-                offset: 0,
-                color: "#f9fafb",
-              },
-              {
-                offset: 1,
-                color: "#9ca3af",
-              },
-            ],
-          },
+          opacity: 0.1,
         },
       },
       {
@@ -109,7 +71,7 @@ onMounted(() => {
         showSymbol: false,
         name: "Current(A)",
         itemStyle: {
-          color: "#43e97b",
+          color: "#1dc355",
         },
       },
     ],

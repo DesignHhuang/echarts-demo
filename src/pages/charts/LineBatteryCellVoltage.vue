@@ -20,15 +20,9 @@ onMounted(() => {
       containLabel: true,
       left: "1%",
       right: "1%",
-      top: "10%",
+      top: "2%",
     },
     tooltip: {
-      axisPointer: {
-        lineStyle: {
-          color: "#019680",
-          width: 1,
-        },
-      },
       trigger: "axis",
     },
     xAxis: {
@@ -39,10 +33,10 @@ onMounted(() => {
     },
     yAxis: [
       {
-        name: "Voltage",
+        /* name: "Voltage",
         nameTextStyle: {
           align: "right",
-        },
+        }, */
         type: "value",
         scale: true,
         splitLine: { show: false },
@@ -51,13 +45,9 @@ onMounted(() => {
         },
       },
       {
-        name: "Voltage Diff",
-        nameTextStyle: {
-          align: "center",
-          padding: [0, 0, 0, 20],
-        },
+        //show: false,
         type: "value",
-        scale: true,
+        //scale: true,
         splitLine: { show: false },
         axisLabel: {
           formatter: "{value}mV",
@@ -72,30 +62,11 @@ onMounted(() => {
         showSymbol: false,
         name: "Max Voltage(V)",
         yAxisIndex: 0,
-        lineStyle: {
-          width: 1,
-        },
         itemStyle: {
-          color: "#facc15",
+          color: "#e76e50",
         },
         areaStyle: {
-          color: {
-            type: "linear",
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              {
-                offset: 0,
-                color: "#facc15",
-              },
-              {
-                offset: 1,
-                color: "#fafaf9",
-              },
-            ],
-          },
+          opacity: 0.1,
         },
       },
       {
@@ -105,30 +76,11 @@ onMounted(() => {
         showSymbol: false,
         name: "Min Voltage(V)",
         yAxisIndex: 0,
-        lineStyle: {
-          width: 1,
-        },
         itemStyle: {
-          color: "#ea580c",
+          color: "#2a9d90",
         },
         areaStyle: {
-          color: {
-            type: "linear",
-            x: 0,
-            y: 0,
-            x2: 0,
-            y2: 1,
-            colorStops: [
-              {
-                offset: 0,
-                color: "#ea580c",
-              },
-              {
-                offset: 1,
-                color: "#fafaf9",
-              },
-            ],
-          },
+          opacity: 0.1,
         },
       },
       {
@@ -138,9 +90,6 @@ onMounted(() => {
         showSymbol: false,
         name: "Voltage Difference(mV)",
         yAxisIndex: 1,
-        lineStyle: {
-          type: "dashed",
-        },
         itemStyle: {
           color: "#737373",
         },

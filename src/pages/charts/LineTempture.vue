@@ -32,8 +32,8 @@ onMounted(() => {
     },
     yAxis: {
       type: "value",
-      scale: true,
-      splitLine: { show: false },
+      //scale: true,
+      //splitLine: { show: false },
       axisLabel: {
         formatter: "{value}°C",
       },
@@ -46,7 +46,7 @@ onMounted(() => {
         showSymbol: false,
         name: "Max(°C)",
         itemStyle: {
-          color: "#025DF4",
+          color: "#ff595e",
         },
         areaStyle: { opacity: 0.2 },
       },
@@ -57,7 +57,7 @@ onMounted(() => {
         showSymbol: false,
         name: "Min(°C)",
         itemStyle: {
-          color: "#DB6BCF",
+          color: "#6a4c93",
         },
         areaStyle: { opacity: 0.2 },
       },

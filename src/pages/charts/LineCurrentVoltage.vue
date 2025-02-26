@@ -16,7 +16,7 @@ onMounted(() => {
       containLabel: true,
       left: "1%",
       right: "1%",
-      top: "10%",
+      top: "2%",
     },
     tooltip: {
       trigger: "axis",
@@ -32,7 +32,6 @@ onMounted(() => {
     },
     yAxis: [
       {
-        name: "Curent",
         type: "value",
         splitLine: { show: false },
         axisLabel: {
@@ -40,10 +39,9 @@ onMounted(() => {
         },
       },
       {
-        name: "Voltage",
         type: "value",
         splitLine: { show: false },
-        scale: true,
+        //scale: true,
         axisLabel: {
           formatter: "{value}V",
         },
@@ -58,7 +56,7 @@ onMounted(() => {
         showSymbol: false,
         name: "Current(A)",
         itemStyle: {
-          color: "#5ab1ef",
+          color: "#019680",
         },
         areaStyle: { opacity: 0.2 },
       },
@@ -70,7 +68,7 @@ onMounted(() => {
         showSymbol: false,
         name: "Voltage(V)",
         itemStyle: {
-          color: "#019680",
+          color: "#5ab1ef",
         },
         areaStyle: { opacity: 0.2 },
       },
