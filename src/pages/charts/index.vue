@@ -107,7 +107,7 @@ import LineStatistics from "./LineStatistics.vue";
         <Button>Add More Charts</Button>
       </div>
 
-      <div class="grid grid-cols-1 gap-4">
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
         <Card>
           <CardHeader>
             <div class="flex items-center justify-between gap-4">
@@ -116,7 +116,7 @@ import LineStatistics from "./LineStatistics.vue";
             </div>
           </CardHeader>
           <CardContent>
-            <LineSocSoh ref="socSoh" />
+            <LineSocSoh />
           </CardContent>
         </Card>
 
@@ -128,7 +128,7 @@ import LineStatistics from "./LineStatistics.vue";
             </div>
           </CardHeader>
           <CardContent>
-            <LineCclDclCurrent ref="cclDclCurrent" />
+            <LineCclDclCurrent />
           </CardContent>
         </Card>
 
@@ -180,7 +180,7 @@ import LineStatistics from "./LineStatistics.vue";
           </CardContent>
         </Card>
 
-        <Card>
+        <Card class="col-span-full">
           <CardHeader>
             <div class="flex items-center justify-between gap-4">
               <CardTitle>Statistics</CardTitle>

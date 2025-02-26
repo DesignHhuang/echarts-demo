@@ -12,7 +12,7 @@ const { renderEcharts } = useEcharts(chartRef);
 onMounted(() => {
   renderEcharts({
     grid: {
-      bottom: "20%",
+      bottom: "12%",
       left: "1%",
       right: "1%",
       top: "5%",
