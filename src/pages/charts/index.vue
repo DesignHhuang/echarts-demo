@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, unref } from "vue";
+import { ref } from "vue";
 import { Button } from "@/components/ui/button";
 
 import {
@@ -37,12 +37,11 @@ import {
 
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
+import draggable from "vuedraggable";
+
 import { DateRangePicker } from "@/components/date-range-picker";
 
 import { Copy, BatteryFull, Heater, Info } from "lucide-vue-next";
-
-import AnalyticsTrends from "./AnalyticsTrends.vue";
-//import AnalyticsStates from "./AnalyticsStates.vue";
 
 import LineSocSoh from "./LineSocSoh.vue";
 import LineCclDclCurrent from "./LineCclDclCurrent.vue";
@@ -51,6 +50,30 @@ import LinePower from "./LinePower.vue";
 import LineCurrentVoltage from "./LineCurrentVoltage.vue";
 import LineTempture from "./LineTempture.vue";
 import LineStatistics from "./LineStatistics.vue";
+
+type CardInterface = {
+  order: number;
+  type: string;
+  name: string;
+};
+
+const dragOptions = {
+  animation: 200,
+  disabled: false,
+  ghostClass: "ghost",
+};
+
+const dragging = ref(false);
+
+const cards = ref<CardInterface[]>([
+  { order: 0, type: "socSoh", name: "SOC & SOH" },
+  { order: 1, type: "cclDcl", name: "CCL & DCL & Current" },
+  { order: 2, type: "cellVoltage", name: "Battery Cell Voltage" },
+  { order: 3, type: "power", name: "Power" },
+  { order: 4, type: "current", name: "Current & Voltage" },
+  { order: 5, type: "temperature", name: "Temperature" },
+  { order: 6, type: "statistics", name: "Statistics" },
+]);
 </script>
 
 <template>
@@ -107,91 +130,34 @@ import LineStatistics from "./LineStatistics.vue";
         <Button>Add More Charts</Button>
       </div>
 
-      <div class="grid grid-cols-1 xl:grid-cols-2 gap-4">
-        <Card>
-          <CardHeader>
-            <div class="flex items-center justify-between gap-4">
-              <CardTitle>SOC & SOH</CardTitle>
-              <DateRangePicker />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <LineSocSoh />
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <div class="flex items-center justify-between gap-4">
-              <CardTitle>CCL & DCL & Current</CardTitle>
-              <DateRangePicker />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <LineCclDclCurrent />
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <div class="flex items-center justify-between gap-4">
-              <CardTitle>Battery Cell Voltage</CardTitle>
-              <DateRangePicker />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <LineBatteryCellVoltage />
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <div class="flex items-center justify-between gap-4">
-              <CardTitle>Power</CardTitle>
-              <DateRangePicker />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <LinePower />
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <div class="flex items-center justify-between gap-4">
-              <CardTitle>Current & Voltage</CardTitle>
-              <DateRangePicker />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <LineCurrentVoltage />
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <div class="flex items-center justify-between gap-4">
-              <CardTitle>Temperature</CardTitle>
-              <DateRangePicker />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <LineTempture />
-          </CardContent>
-        </Card>
-
-        <Card class="col-span-full">
-          <CardHeader>
-            <div class="flex items-center justify-between gap-4">
-              <CardTitle>Statistics</CardTitle>
-              <DateRangePicker />
-            </div>
-          </CardHeader>
-          <CardContent>
-            <LineStatistics />
-          </CardContent>
-        </Card>
-      </div>
+      <draggable
+        class="grid grid-cols-1 xl:grid-cols-2 gap-4"
+        :list="cards"
+        v-bind="dragOptions"
+        @start="dragging = true"
+        @end="dragging = false"
+        item-key="order"
+      >
+        <template #item="{ element }">
+          <Card>
+            <CardHeader>
+              <div class="flex items-center justify-between gap-4">
+                <CardTitle>{{ element.name }}</CardTitle>
+                <DateRangePicker />
+              </div>
+            </CardHeader>
+            <CardContent>
+              <LineSocSoh v-if="element.type === 'socSoh'" />
+              <LineCclDclCurrent v-if="element.type === 'cclDcl'" />
+              <LineBatteryCellVoltage v-if="element.type === 'cellVoltage'" />
+              <LinePower v-if="element.type === 'power'" />
+              <LineCurrentVoltage v-if="element.type === 'current'" />
+              <LineTempture v-if="element.type === 'temperature'" />
+              <LineStatistics v-if="element.type === 'statistics'" />
+            </CardContent>
+          </Card>
+        </template>
+      </draggable>
     </div>
     <Card class="overflow-hidden h-full flex flex-col flex-none sticky top-20">
       <CardHeader class="flex flex-row items-start bg-muted/50">
