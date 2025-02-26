@@ -12,15 +12,23 @@ const { renderEcharts, getChartInstance } = useEcharts(chartRef);
 onMounted(() => {
   renderEcharts({
     grid: {
-      bottom: 0,
-      containLabel: true,
+      bottom: "20%",
       left: "1%",
       right: "1%",
-      top: "2%",
+      top: "5%",
     },
     tooltip: {
       trigger: "axis",
+      textStyle: {
+        fontFamily: "geist-sans",
+      },
     },
+    dataZoom: [
+      {
+        type: "inside",
+        minValueSpan: 1200 * 1000,
+      },
+    ],
     xAxis: {
       type: "time",
       axisLine: {
@@ -33,6 +41,7 @@ onMounted(() => {
     yAxis: [
       {
         type: "value",
+        show: false,
         splitLine: { show: false },
         axisLabel: {
           formatter: "{value}A",
@@ -40,8 +49,9 @@ onMounted(() => {
       },
       {
         type: "value",
+        show: false,
         splitLine: { show: false },
-        //scale: true,
+        scale: true,
         axisLabel: {
           formatter: "{value}V",
         },
@@ -54,7 +64,11 @@ onMounted(() => {
         type: "line",
         yAxisIndex: 0,
         showSymbol: false,
-        name: "Current(A)",
+        name: "Current",
+        tooltip: {
+          trigger: "axis",
+          valueFormatter: (value) => `${value}A`,
+        },
         itemStyle: {
           color: "#019680",
         },
@@ -66,7 +80,11 @@ onMounted(() => {
         type: "line",
         yAxisIndex: 1,
         showSymbol: false,
-        name: "Voltage(V)",
+        name: "Voltage",
+        tooltip: {
+          trigger: "axis",
+          valueFormatter: (value) => `${value}V`,
+        },
         itemStyle: {
           color: "#5ab1ef",
         },

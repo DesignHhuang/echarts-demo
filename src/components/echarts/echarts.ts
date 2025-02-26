@@ -18,6 +18,7 @@ import {
   TitleComponent,
   ToolboxComponent,
   TooltipComponent,
+  DataZoomComponent,
   // 内置数据转换器组件 (filter, sort)
   TransformComponent,
 } from "echarts/components";
@@ -50,6 +51,7 @@ echarts.use([
   CanvasRenderer,
   LegendComponent,
   ToolboxComponent,
+  DataZoomComponent,
 ]);
 
 export default echarts;

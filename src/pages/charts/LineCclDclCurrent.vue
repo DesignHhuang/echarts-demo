@@ -12,15 +12,24 @@ const { renderEcharts, getChartInstance } = useEcharts(chartRef);
 onMounted(() => {
   renderEcharts({
     grid: {
-      bottom: 0,
-      containLabel: true,
+      bottom: "20%",
       left: "1%",
       right: "1%",
-      top: "2%",
+      top: "5%",
     },
     tooltip: {
       trigger: "axis",
+      textStyle: {
+        fontFamily: "geist-sans",
+      },
+      valueFormatter: (value) => `${value}A`,
     },
+    dataZoom: [
+      {
+        type: "inside",
+        minValueSpan: 1200 * 1000,
+      },
+    ],
     xAxis: {
       type: "time",
       axisLine: {
@@ -33,6 +42,7 @@ onMounted(() => {
     yAxis: {
       type: "value",
       scale: true,
+      show: false,
       axisLabel: {
         formatter: "{value}A",
       },
@@ -43,7 +53,7 @@ onMounted(() => {
         data: cclData,
         type: "line",
         showSymbol: false,
-        name: "CCL(A)",
+        name: "CCL",
         itemStyle: {
           color: "#2563eb",
         },
@@ -56,7 +66,7 @@ onMounted(() => {
         data: dclData,
         type: "line",
         showSymbol: false,
-        name: "DCL(A)",
+        name: "DCL",
         itemStyle: {
           color: "#60a8fb",
         },
@@ -69,7 +79,7 @@ onMounted(() => {
         data: currentData,
         type: "line",
         showSymbol: false,
-        name: "Current(A)",
+        name: "Current",
         itemStyle: {
           color: "#1dc355",
         },

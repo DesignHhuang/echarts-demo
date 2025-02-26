@@ -12,15 +12,24 @@ const { renderEcharts } = useEcharts(chartRef);
 onMounted(() => {
   renderEcharts({
     grid: {
-      bottom: 0,
-      containLabel: true,
+      bottom: "20%",
       left: "1%",
       right: "1%",
-      top: "2%",
+      top: "5%",
     },
     tooltip: {
       trigger: "axis",
+      textStyle: {
+        fontFamily: "geist-sans",
+      },
+      valueFormatter: (value) => `${value}W`,
     },
+    dataZoom: [
+      {
+        type: "inside",
+        minValueSpan: 1200 * 1000,
+      },
+    ],
     xAxis: {
       type: "time",
       axisLabel: {
@@ -28,12 +37,10 @@ onMounted(() => {
       },
     },
     yAxis: {
+      show: false,
       type: "value",
       scale: true,
-      //splitLine: { show: false },
-      axisLabel: {
-        formatter: "{value}W",
-      },
+      splitLine: { show: false },
     },
     series: [
       {

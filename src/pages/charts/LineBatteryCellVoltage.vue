@@ -8,6 +8,8 @@ import {
   maxVoltageData,
   minVoltageData,
   diffVoltageData,
+  maxVoltageDeviceNo,
+  minVoltageDeviceNo,
 } from "./useChartsData";
 
 const chartRef = ref<EchartsUIType>();
@@ -16,15 +18,23 @@ const { renderEcharts, getChartInstance } = useEcharts(chartRef);
 onMounted(() => {
   renderEcharts({
     grid: {
-      bottom: 0,
-      containLabel: true,
+      bottom: "20%",
       left: "1%",
       right: "1%",
-      top: "2%",
+      top: "5%",
     },
     tooltip: {
       trigger: "axis",
+      textStyle: {
+        fontFamily: "geist-sans",
+      },
     },
+    dataZoom: [
+      {
+        type: "inside",
+        minValueSpan: 1200 * 1000,
+      },
+    ],
     xAxis: {
       type: "time",
       axisLabel: {
@@ -38,20 +48,16 @@ onMounted(() => {
           align: "right",
         }, */
         type: "value",
+        show: false,
         scale: true,
         splitLine: { show: false },
-        axisLabel: {
-          formatter: "{value}V",
-        },
       },
       {
         //show: false,
         type: "value",
+        show: false,
         //scale: true,
         splitLine: { show: false },
-        axisLabel: {
-          formatter: "{value}mV",
-        },
       },
     ],
     series: [
@@ -60,8 +66,12 @@ onMounted(() => {
         data: maxVoltageData,
         type: "line",
         showSymbol: false,
-        name: "Max Voltage(V)",
+        name: "Max. Cell Voltage",
         yAxisIndex: 0,
+        tooltip: {
+          valueFormatter: (value, dataIndex) =>
+            `${value}V(${maxVoltageDeviceNo[dataIndex]})`,
+        },
         itemStyle: {
           color: "#e76e50",
         },
@@ -74,8 +84,12 @@ onMounted(() => {
         data: minVoltageData,
         type: "line",
         showSymbol: false,
-        name: "Min Voltage(V)",
+        name: "Min. Cell Voltage",
         yAxisIndex: 0,
+        tooltip: {
+          valueFormatter: (value, dataIndex) =>
+            `${value}V(${minVoltageDeviceNo[dataIndex]})`,
+        },
         itemStyle: {
           color: "#2a9d90",
         },
@@ -87,8 +101,11 @@ onMounted(() => {
         smooth: true,
         data: diffVoltageData,
         type: "line",
+        tooltip: {
+          valueFormatter: (value) => `${value}mV`,
+        },
         showSymbol: false,
-        name: "Voltage Difference(mV)",
+        name: "Voltage Difference",
         yAxisIndex: 1,
         itemStyle: {
           color: "#737373",

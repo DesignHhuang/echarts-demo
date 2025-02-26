@@ -4,7 +4,12 @@ import type { EchartsUIType } from "@/components/echarts";
 import { onMounted, ref } from "vue";
 
 import { EchartsUI, useEcharts } from "@/components/echarts";
-import { maxTemperatureData, minTemperatureData } from "./useChartsData";
+import {
+  maxTemperatureData,
+  maxTemperatureDeviceNo,
+  minTemperatureData,
+  minTemperatureDeviceNo,
+} from "./useChartsData";
 
 const chartRef = ref<EchartsUIType>();
 const { renderEcharts, getChartInstance } = useEcharts(chartRef);
@@ -12,15 +17,23 @@ const { renderEcharts, getChartInstance } = useEcharts(chartRef);
 onMounted(() => {
   renderEcharts({
     grid: {
-      bottom: 0,
-      containLabel: true,
+      bottom: "20%",
       left: "1%",
       right: "1%",
-      top: "2%",
+      top: "5%",
     },
     tooltip: {
       trigger: "axis",
+      textStyle: {
+        fontFamily: "geist-sans",
+      },
     },
+    dataZoom: [
+      {
+        type: "inside",
+        minValueSpan: 1200 * 1000,
+      },
+    ],
     xAxis: {
       type: "time",
       axisLine: {
@@ -32,6 +45,7 @@ onMounted(() => {
     },
     yAxis: {
       type: "value",
+      show: false,
       //scale: true,
       //splitLine: { show: false },
       axisLabel: {
@@ -42,9 +56,13 @@ onMounted(() => {
       {
         smooth: true,
         data: maxTemperatureData,
+        tooltip: {
+          valueFormatter: (value, index) =>
+            `${value}°C(${maxTemperatureDeviceNo[index]})`,
+        },
         type: "line",
         showSymbol: false,
-        name: "Max(°C)",
+        name: "Max. Temp.",
         itemStyle: {
           color: "#ff595e",
         },
@@ -53,9 +71,13 @@ onMounted(() => {
       {
         smooth: true,
         data: minTemperatureData,
+        tooltip: {
+          valueFormatter: (value, index) =>
+            `${value}°C(${minTemperatureDeviceNo[index]})`,
+        },
         type: "line",
         showSymbol: false,
-        name: "Min(°C)",
+        name: "Min. Temp.",
         itemStyle: {
           color: "#6a4c93",
         },

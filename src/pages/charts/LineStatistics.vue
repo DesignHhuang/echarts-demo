@@ -12,15 +12,24 @@ const { renderEcharts, getChartInstance } = useEcharts(chartRef);
 onMounted(() => {
   renderEcharts({
     grid: {
-      bottom: 0,
-      containLabel: true,
+      bottom: "20%",
       left: "1%",
       right: "1%",
-      top: "2%",
+      top: "5%",
     },
     tooltip: {
       trigger: "axis",
+      textStyle: {
+        fontFamily: "geist-sans",
+      },
+      valueFormatter: (value) => `${value}kWh`,
     },
+    dataZoom: [
+      {
+        type: "inside",
+        minValueSpan: 1200 * 1000,
+      },
+    ],
     xAxis: {
       type: "time",
       axisLine: {
@@ -32,6 +41,7 @@ onMounted(() => {
     },
     yAxis: {
       type: "value",
+      show: false,
       //scale: true,
       //splitLine: { show: false },
       axisLabel: {
@@ -44,7 +54,7 @@ onMounted(() => {
         data: totalChargeData,
         type: "line",
         showSymbol: false,
-        name: "Total Charged(kWh)",
+        name: "Total Charged",
         itemStyle: {
           color: "#0081a7",
         },
@@ -54,7 +64,7 @@ onMounted(() => {
         data: totalDischargeData,
         type: "line",
         showSymbol: false,
-        name: "Total Discharged(kWh)",
+        name: "Total Discharged",
         itemStyle: {
           color: "#77bfa3",
         },

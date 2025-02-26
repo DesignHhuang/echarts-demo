@@ -5,7 +5,7 @@ interface Props {
 }
 
 withDefaults(defineProps<Props>(), {
-  height: "280px",
+  height: "120px",
   width: "100%",
 });
 </script>

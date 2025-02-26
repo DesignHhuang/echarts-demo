@@ -115,7 +115,7 @@ import LineStatistics from "./LineStatistics.vue";
               <DateRangePicker />
             </div>
           </CardHeader>
-          <CardContent class="overflow-hidden">
+          <CardContent>
             <LineSocSoh ref="socSoh" />
           </CardContent>
         </Card>
@@ -127,7 +127,7 @@ import LineStatistics from "./LineStatistics.vue";
               <DateRangePicker />
             </div>
           </CardHeader>
-          <CardContent class="overflow-hidden">
+          <CardContent>
             <LineCclDclCurrent ref="cclDclCurrent" />
           </CardContent>
         </Card>
@@ -139,7 +139,7 @@ import LineStatistics from "./LineStatistics.vue";
               <DateRangePicker />
             </div>
           </CardHeader>
-          <CardContent class="pl-2">
+          <CardContent>
             <LineBatteryCellVoltage />
           </CardContent>
         </Card>
@@ -151,7 +151,7 @@ import LineStatistics from "./LineStatistics.vue";
               <DateRangePicker />
             </div>
           </CardHeader>
-          <CardContent class="pl-2">
+          <CardContent>
             <LinePower />
           </CardContent>
         </Card>
@@ -163,7 +163,7 @@ import LineStatistics from "./LineStatistics.vue";
               <DateRangePicker />
             </div>
           </CardHeader>
-          <CardContent class="pl-2">
+          <CardContent>
             <LineCurrentVoltage />
           </CardContent>
         </Card>
@@ -175,7 +175,7 @@ import LineStatistics from "./LineStatistics.vue";
               <DateRangePicker />
             </div>
           </CardHeader>
-          <CardContent class="pl-2">
+          <CardContent>
             <LineTempture />
           </CardContent>
         </Card>
@@ -187,7 +187,7 @@ import LineStatistics from "./LineStatistics.vue";
               <DateRangePicker />
             </div>
           </CardHeader>
-          <CardContent class="pl-2">
+          <CardContent>
             <LineStatistics />
           </CardContent>
         </Card>
